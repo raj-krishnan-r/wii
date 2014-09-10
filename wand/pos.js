@@ -20,7 +20,7 @@ function turnover(skip)
 		i++;
 		if(i==2)
 		{
-			document.getElementById('midstate').innerHTML="<center>let's know eachother now</center>";
+			document.getElementById('midstate').innerHTML="<center>let's know each other now</center>";
 		}
 		if(i==5)
 		{
@@ -28,7 +28,7 @@ function turnover(skip)
 		}
 		if(i==8)
 		{
-			document.getElementById('midstate').innerHTML='<center>You are, <input onblur = "feed()"; id="uname" type = "text"/></center>';
+			document.getElementById('midstate').innerHTML='<center>you are, <input autofocus onblur = "feed()"; id="uname" type = "text"/></center>';
 		}
 		/*if(i==14)
 		{
@@ -41,15 +41,24 @@ function turnover(skip)
 function feed()
 {
 	var cont = document.getElementById('uname').value;
-	document.getElementById('memory').innerHTML='Memorizing...';
+	if(cont!='')
+	{
+	document.getElementById('memory').innerHTML='Memorizing you, '+toTitleCase(cont)+'...';
 	$.post('name.php',{name:cont},
 	function(data,success)
 	{
 	document.getElementById('memory').innerHTML='';
+	knowmore(toTitleCase(data));
+
 	});
+	}
 	
 }
 function toTitleCase(str)
 {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+function knowmore(name)
+{
+document.getElementById('midstate').innerHTML='<center><h2>So, '+name+' </h2><h3>I think, I can help you in some way. More, precisely by storing your data. And also keep in mind, that I am being build.<br></h3><p> Just to mention, '+name+', to proceed always click some where on the screen.</p></center>';
 }

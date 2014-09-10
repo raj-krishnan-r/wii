@@ -5,6 +5,8 @@
 <title>WII</title>
 <link rel="stylesheet" href="look/general.css"/>
 <script src="wand/pos.js"></script>
+<script src="wand/xtra.js"></script>
+
 <script src="wand/ajax_1_10_2.js"></script>
 
 </head>
